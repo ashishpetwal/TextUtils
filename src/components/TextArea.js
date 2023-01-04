@@ -7,10 +7,13 @@ export default function TextArea(props) {
     const handleUpperCase = () =>{
         let temp = text.toUpperCase();
         newText(temp);
+        props.showAlert("Converted to UpperCase", "success");
     }
     const handleLowerCase = () =>{
         let temp = text.toLowerCase();
         newText(temp);
+        props.showAlert("Converted to lowercase", "success");
+
     }
     let style = {
         backgroundColor: props.mode === "light"?"white":"#00141e",
