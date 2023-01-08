@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import TextArea from "./components/TextArea";
 import React, { useState } from "react";
 import Alert from "./components/Alert";
+import About from "./components/About"
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -39,7 +40,8 @@ function App() {
       <Alert alert={alert} />
       <Routes>
         <Route path="/" element={<div className="my-5"><TextArea heading="Enter Your Text" mode={mode} showAlert={showAlert} /></div>}></Route>
-        <Route path="/faqs" element={<FAQs/>}></Route>
+        <Route path="/about" element={<About mode={mode}/>}/>
+        <Route path="/faqs" element={<FAQs mode={mode}/>}></Route>
       </Routes>
     </Router>
   );

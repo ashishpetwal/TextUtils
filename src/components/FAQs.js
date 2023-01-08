@@ -1,20 +1,24 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-export default function FAQs() {
-    const[myStyle, newStyle] = useState({backgroundColor: 'black', color: 'white', border: '1px solid white'})
-
-    const toggleSwitch = () => {
-        if(myStyle.backgroundColor === 'black'){
-            newStyle({backgroundColor: 'white', color: 'black'});
-        }
-        else{
-            newStyle({backgroundColor: 'black', color: 'white', border: '1px solid white'});
-        }
+export default function FAQs(props) {
+    // const[myStyle,newStyle] = useState({backgroundColor: 'white', color: 'black', border: '1px solid white'})
+    let myStyle = {
+        backgroundColor: props.mode==="dark"?"#1a2a4e":"white",
+        color: props.mode==="dark"?"white":"black"
     }
 
+    // const toggleSwitch = () => {
+    //     if(myStyle.backgroundColor === 'black'){
+    //         newStyle({backgroundColor: 'white', color: 'black'});
+    //     }
+    //     else{
+    //         newStyle({backgroundColor: 'black', color: 'white', border: '1px solid white'});
+    //     }
+    // }
+
     return (
-        <div className='container' style={myStyle}>
-            <h1 className='my-3'>FAQs</h1>
+        <div className='container'>
+            <h1 className='my-3' style={{color: props.mode==="dark"?"white":"black"}}>FAQs</h1>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
@@ -53,9 +57,9 @@ export default function FAQs() {
                     </div>
                 </div>
             </div>
-            <div className='container my-3'>
+            {/* <div className='container my-3'>
                 <button onClick={toggleSwitch} className='btn btn-primary'>Toggle</button>
-            </div>
+            </div> */}
         </div>
     )
 }
